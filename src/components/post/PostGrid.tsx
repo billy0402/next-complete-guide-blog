@@ -9,7 +9,7 @@ const PostGrid = ({ posts }: Props) => {
   return (
     <ul className='post-grid'>
       {posts.map((post) => (
-        <PostItem key={post.id} />
+        <PostItem key={post.id} {...post} />
       ))}
     </ul>
   );
