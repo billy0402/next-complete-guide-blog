@@ -1,3 +1,5 @@
+import ReactMarkdown from 'react-markdown';
+
 import { DUMMY_POST } from '@fixtures/posts';
 import PostHeader from './PostHeader';
 
@@ -7,7 +9,7 @@ const PostDetail = () => {
   return (
     <article className='post-detail'>
       <PostHeader {...post} />
-      {post.content}
+      <ReactMarkdown>{post.content}</ReactMarkdown>
     </article>
   );
 };
