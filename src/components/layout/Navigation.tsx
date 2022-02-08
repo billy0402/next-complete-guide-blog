@@ -4,7 +4,7 @@ import Logo from './Logo';
 
 const Navigation = () => {
   return (
-    <header>
+    <header className='navigation__header'>
       <Link href='/'>
         <a>
           <Logo />
