@@ -18,10 +18,11 @@ const PostItem = ({ title, excerpt, image, date, slug }: Props) => {
         <a>
           <div className='post-item__image'>
             <Image
-              src={`/images/post/${image}`}
+              src={`/images/post/${slug}/${image}`}
               alt={title}
               width={300}
               height={200}
+              layout='responsive'
             />
           </div>
           <div className='post-item__content'>
