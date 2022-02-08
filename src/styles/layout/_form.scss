@@ -1,0 +1,44 @@
+.form label {
+  display: block;
+  margin: var(--size-2) 0 var(--size-1) 0;
+  font-weight: bold;
+  font-family: 'Oswald', sans-serif;
+}
+
+.form input,
+.form textarea {
+  padding: var(--size-1);
+  width: 100%;
+  border: 1px solid var(--color-grey-400);
+  border-radius: 4px;
+  background-color: var(--color-grey-50);
+  font: inherit;
+  resize: none;
+}
+
+.form button {
+  padding: var(--size-2) var(--size-4);
+  border: 1px solid var(--color-primary-700);
+  border-radius: 4px;
+  background-color: var(--color-primary-700);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  color: var(--color-primary-50);
+  font: inherit;
+  cursor: pointer;
+}
+
+.form button:hover {
+  border-color: var(--color-primary-500);
+  background-color: var(--color-primary-500);
+}
+
+.form__controls {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1rem;
+}
+
+.form__control {
+  flex: 1;
+  min-width: 10rem;
+}

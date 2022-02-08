@@ -1,0 +1,26 @@
+.post-detail {
+  margin: var(--size-8) auto;
+  padding: var(--size-4);
+  max-width: 60rem;
+  width: 95%;
+  border-radius: 6px;
+  background-color: var(--color-grey-100);
+  font-size: var(--size-5);
+  line-height: var(--size-8);
+}
+
+.post-detail p {
+  color: var(--color-grey-800);
+}
+
+@media (min-width: 768px) {
+  .post-detail {
+    padding: var(--size-8);
+  }
+}
+
+.post-detail__image {
+  margin: var(--size-4) auto;
+  max-width: 600px;
+  width: 100%;
+}

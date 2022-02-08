@@ -1,2 +1,19 @@
-@import 'base/reset';
+// @import 'base/reset';
 @import 'base/font';
+
+@import 'variable/color';
+@import 'variable/size';
+
+@import 'component/all-posts';
+@import 'component/contact';
+@import 'component/featured-posts';
+@import 'component/hero';
+@import 'component/logo';
+@import 'component/post-detail';
+@import 'component/post-grid';
+@import 'component/post-header';
+@import 'component/post-item';
+
+@import 'layout/app';
+@import 'layout/form';
+@import 'layout/navigation';

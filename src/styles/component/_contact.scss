@@ -1,0 +1,28 @@
+.contact {
+  margin: var(--size-8) auto;
+  padding: var(--size-4);
+  max-width: 50rem;
+  width: 90%;
+  border-radius: 6px;
+  background-color: var(--color-grey-100);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  font-size: var(--size-6);
+}
+
+.contact h1 {
+  margin: var(--size-4) 0;
+  text-align: left;
+  font-size: var(--size-8);
+}
+
+@media (min-width: 768px) {
+  .contact h1 {
+    text-align: center;
+    font-size: var(--size-16);
+  }
+}
+
+.contact__actions {
+  margin-top: var(--size-4);
+  text-align: right;
+}
