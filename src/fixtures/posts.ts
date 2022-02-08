@@ -3,6 +3,7 @@ import { Post } from '@models/post';
 const DUMMY_POST: Post = {
   id: 'd1',
   title: 'Getting Started with NextJS',
+  content: '# This is a first post',
   excerpt:
     'Next.js is the React Framework for Production - it makes building fullstack React apps and sites a breeze and ships with built-in SSR.',
   image: 'getting-started-with-nextjs.png',
@@ -17,4 +18,4 @@ const DUMMY_POSTS: Post[] = new Array(4)
     id: `d${index}`,
   }));
 
-export { DUMMY_POSTS };
+export { DUMMY_POST, DUMMY_POSTS };

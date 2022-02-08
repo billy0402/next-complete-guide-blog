@@ -1,7 +1,9 @@
 import { NextPage } from 'next';
 
+import PostDetail from '@components/post/post-detail/PostDetail';
+
 const PostDetailPage: NextPage = () => {
-  return <>Post Detail Page</>;
+  return <PostDetail />;
 };
 
 export default PostDetailPage;
