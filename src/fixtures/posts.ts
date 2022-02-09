@@ -9,6 +9,7 @@ const DUMMY_POST: Post = {
   image: 'getting-started-with-nextjs.png',
   date: '2022-02-10',
   slug: 'getting-started-with-nextjs',
+  isFeatured: true,
 };
 
 const DUMMY_POSTS: Post[] = new Array(4)

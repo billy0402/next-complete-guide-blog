@@ -6,6 +6,12 @@ type Post = {
   image: string;
   date: string;
   slug: string;
+  isFeatured: boolean;
 };
 
-export type { Post };
+type PostTag = Pick<
+  Post,
+  'title' | 'excerpt' | 'image' | 'date' | 'isFeatured'
+>;
+
+export type { Post, PostTag };
