@@ -6,13 +6,17 @@ import { Post, PostTag } from '@models/post';
 
 const postDirectory = path.join(process.cwd(), 'src/fixtures/post');
 
-const toPostData = (fileName: string) => {
-  const filePath = path.join(postDirectory, fileName);
+const getPostFileNames = () => {
+  return fs.readdirSync(postDirectory);
+};
+
+const getPostData = (fileNameOrSlug: string) => {
+  // remove the filename extension
+  const postSlug = fileNameOrSlug.replace(/\.md$/, '');
+
+  const filePath = path.join(postDirectory, `${postSlug}.md`);
   const fileContent = fs.readFileSync(filePath, 'utf-8');
   const { data, content } = matter(fileContent);
-
-  // remove the filename extension
-  const postSlug = fileName.replace(/\.md$/, '');
 
   const postData: Post = {
     ...(data as PostTag),
@@ -25,8 +29,10 @@ const toPostData = (fileName: string) => {
 };
 
 const getAllPosts = () => {
-  const postFiles = fs.readdirSync(postDirectory);
-  const allPosts = postFiles.map((postFile) => toPostData(postFile));
+  const postFileNames = getPostFileNames();
+  const allPosts = postFileNames.map((postFileName) =>
+    getPostData(postFileName),
+  );
   const sortedPosts = allPosts.sort((postA, postB) =>
     postA.date > postB.date ? -1 : 1,
   );
@@ -39,4 +45,4 @@ const getFeaturedPosts = () => {
   return featuredPosts;
 };
 
-export { getAllPosts, getFeaturedPosts };
+export { getPostFileNames, getPostData, getAllPosts, getFeaturedPosts };

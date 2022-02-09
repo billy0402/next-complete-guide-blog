@@ -1,11 +1,13 @@
 import ReactMarkdown from 'react-markdown';
 
-import { DUMMY_POST } from '@fixtures/posts';
+import { Post } from '@models/post';
 import PostHeader from './PostHeader';
 
-const PostDetail = () => {
-  const post = DUMMY_POST;
+type Props = {
+  post: Post;
+};
 
+const PostDetail = ({ post }: Props) => {
   return (
     <article className='post-detail'>
       <PostHeader {...post} />
