@@ -1,3 +1,5 @@
+import ReactDOM from 'react-dom';
+
 type Props = {
   title: string;
   message: string;
@@ -14,11 +16,12 @@ const Notification = ({ title, message, status }: Props) => {
   }
   const cssClasses = `notification${statusClass}`;
 
-  return (
+  return ReactDOM.createPortal(
     <div className={cssClasses}>
       <h2>{title}</h2>
       <p>{message}</p>
-    </div>
+    </div>,
+    document.getElementById('notification') as HTMLElement,
   );
 };
 

@@ -5,6 +5,7 @@ const MyDocument = () => {
     <Html lang='en'>
       <Head />
       <body>
+        <div id='notification'></div>
         <Main />
         <NextScript />
       </body>
