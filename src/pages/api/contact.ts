@@ -1,8 +1,16 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { Contact } from '@models/contact';
+import { MongoSystemError } from 'mongodb';
+
+import {
+  CONTACT_COLLECTION_NAME,
+  createDocument,
+  readDocument,
+  toContact,
+} from '@helpers/db';
 import { ApiModel } from '@models/api';
+import { Contact, ContactCreate, DbContact } from '@models/contact';
 
 type Data = ApiModel<Contact>;
 
@@ -26,12 +34,35 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
       }
 
       // store into database
-      const newContact = { email, name, message };
-      console.log(newContact);
+      try {
+        const contact = { email, name, message };
+        const insertResult = await createDocument<ContactCreate>(
+          CONTACT_COLLECTION_NAME,
+          contact,
+        );
 
-      res
-        .status(201)
-        .json({ message: 'Successfully stored message!', data: newContact });
+        const dbContact = await readDocument<DbContact>(
+          CONTACT_COLLECTION_NAME,
+          {
+            _id: insertResult.insertedId,
+          },
+        );
+        if (!dbContact) {
+          res.status(404).json({ message: 'contact is not found' });
+          return;
+        }
+
+        const newContact = toContact(dbContact);
+        res
+          .status(201)
+          .json({ message: 'Successfully stored message!', data: newContact });
+      } catch (error) {
+        const message =
+          error instanceof MongoSystemError
+            ? 'Could not connect to database.'
+            : 'Storing message failed!';
+        res.status(500).json({ message });
+      }
       break;
     }
     default:
