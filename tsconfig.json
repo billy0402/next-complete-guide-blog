@@ -16,6 +16,7 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
+      "@api/*": ["src/pages/api/*"],
       "@components/*": ["src/components/*"],
       "@fixtures/*": ["src/fixtures/*"],
       "@helpers/*": ["src/helpers/*"],
