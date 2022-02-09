@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import Head from 'next/head';
 
 import PostDetail from '@components/post/post-detail/PostDetail';
 import { getPostData, getPostFileNames } from '@helpers/post';
@@ -9,7 +10,15 @@ type Props = {
 };
 
 const PostDetailPage: NextPage<Props> = ({ post }) => {
-  return <PostDetail post={post} />;
+  return (
+    <>
+      <Head>
+        <title>{post.title}</title>
+        <meta name='description' content={post.excerpt} />
+      </Head>
+      <PostDetail post={post} />
+    </>
+  );
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
